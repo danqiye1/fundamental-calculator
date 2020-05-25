@@ -21,8 +21,6 @@ exports.scrapedata = functions
         const ticker = req.query.ticker;
         let db = admin.firestore();
         let financialRef = db.collection('financials').doc(ticker);
-        // const snapshot = await admin.database().ref('/messages').push({original: original});
-        // res.redirect(303, snapshot.ref.toString());
         let scraperPromise = morningstarScraper(ticker)
             .then(data => {
                 let setFinancials = financialRef.set(data);
