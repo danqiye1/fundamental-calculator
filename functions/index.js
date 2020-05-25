@@ -3,6 +3,10 @@ const admin = require('firebase-admin');
 const { morningstarScraper } = require('./src/scrapers.js');
 admin.initializeApp();
 
+const scrapingRunTimeOpts = {
+    memory: '1GB'
+}
+
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
@@ -12,6 +16,7 @@ admin.initializeApp();
 
 exports.scrapedata = functions
     .region('asia-east2')
+    .runWith(scrapingRunTimeOpts)
     .https.onRequest(async (req, res) => {
         const ticker = req.query.ticker;
         let db = admin.firestore();
@@ -23,5 +28,7 @@ exports.scrapedata = functions
                 let setFinancials = financialRef.set(data);
                 res.json(data);
                 return setFinancials;
+            }).catch(error => {
+                throw new Error(error)
             });
     })
