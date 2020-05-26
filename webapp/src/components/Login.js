@@ -1,22 +1,29 @@
 import React from 'react';
 import logo from '../logo.svg';
-import { Container, Row, Card } from 'react-bootstrap';
+import { Grid, Card } from 'semantic-ui-react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
 import firebase from 'firebase';
 
 function Login(props) {
   return (
-    <Container style={{ justifyContent: 'center', alignItems: 'center' }}>
-      <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <Card>
-          <img src={logo} className="App-logo" alt="logo"/>
-          <Card.Body>
-            <Card.Title>Welcome to the Community!</Card.Title>
-            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={props.app.auth()}/>
-          </Card.Body>
-        </Card>
-      </Row>
-    </Container>
+    <div>
+      <Grid columns={3}>
+        <Grid.Row />
+        <Grid.Row>
+          <Grid.Column></Grid.Column>
+          <Grid.Column>
+            <Card centered={true} raised={true} fluid={true}>
+              <img src={logo} className="App-logo" alt="logo"/>
+              <Card.Content>
+                <Card.Header>Welcome to the Community!</Card.Header>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={props.app.auth()}/>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+          <Grid.Column></Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
   );
 }
 

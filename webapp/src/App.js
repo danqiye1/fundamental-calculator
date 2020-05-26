@@ -3,12 +3,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from './firebase';
 import Login from './components/Login';
+import { Router } from '@reach/router';
 
 function App() {
   return (
-    
     <div className="App">
-      <Login app={ firebase }/>
+      <Router>
+        <Login app={ firebase } path="login"/>
+      </Router>
     </div>
   );
 }
