@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from './firebase';
 import Login from './components/Login';
-import Header from './components/Header';
+import Home from './components/Home';
 import { Router, navigate } from '@reach/router';
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header path="/" />
+          <Home path="/" />
           <Login app={ firebase } path="login"/>
         </Router>
       </div>
