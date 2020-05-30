@@ -23,9 +23,9 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Home path="/" />
-          <Login app={ firebase } path="login"/>
-          <Calculator path="calculator" />
+          <Home path="/*" />
+          <Login app={ firebase } path="Login"/>
+          <Calculator path="Calculator" />
         </Router>
       </div>
     );

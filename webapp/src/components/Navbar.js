@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
+import { navigate } from '@reach/router';
 
 class Navbar extends Component {
   state = { activeItem: 'Home' }
   
   handleItemClick = (e, { name }) => {
     this.setState({activeItem: name});
+    navigate(`/${name}`)
   }
 
   render(){
