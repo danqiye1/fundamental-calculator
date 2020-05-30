@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from './firebase';
 import Login from './components/Login';
 import Home from './components/Home';
+import Calculator from './components/Calculator';
 import { Router, navigate } from '@reach/router';
 
 class App extends Component {
@@ -12,9 +13,7 @@ class App extends Component {
     super(props);
 
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        navigate("/");
-      } else {
+      if (!user) {
         navigate("login");
       }
     })
@@ -26,6 +25,7 @@ class App extends Component {
         <Router>
           <Home path="/" />
           <Login app={ firebase } path="login"/>
+          <Calculator path="calculator" />
         </Router>
       </div>
     );
