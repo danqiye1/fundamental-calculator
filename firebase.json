@@ -20,6 +20,26 @@
     "firestore": {
       "port": 8080,
       "rules": "./firestore/project.rules"
+    },
+    "database": {
+      "port": 9000
     }
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "webapp/build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
