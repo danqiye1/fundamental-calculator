@@ -14,7 +14,7 @@ class App extends Component {
 
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
-        navigate("login");
+        navigate("Login");
       }
     })
   }
@@ -23,9 +23,9 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Home path="/*" />
+          <Home path="/*" firebase={ firebase }/>
           <Login app={ firebase } path="Login"/>
-          <Calculator path="Calculator" />
+          <Calculator firebase={ firebase } path="Calculator" />
         </Router>
       </div>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from "./Navbar";
 
-function Home() {
+function Home(props) {
   return (
     <div>
-      <Navbar/>
+      <Navbar firebase={ props.firebase }/>
     </div>
   );
 }

@@ -11,7 +11,7 @@ class Calculator extends Component {
     const { active } = this.state;
     return (
       <div>
-        <Navbar/>
+        <Navbar firebase={ this.props.firebase }/>
         <div style={contentStyle}>
           <div>
             <Grid padded>

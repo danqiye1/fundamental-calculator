@@ -6,8 +6,17 @@ class Navbar extends Component {
   state = { activeItem: 'Home' }
   
   handleItemClick = (e, { name }) => {
-    this.setState({activeItem: name});
-    navigate(`/${name}`)
+    if (name === "Logout"){
+      this.props.firebase.auth()
+        .signOut()
+        .then( () => {
+            navigate('Login');
+          }
+        );
+    } else {
+      this.setState({activeItem: name});
+      navigate(`/${name}`)
+    }
   }
 
   render(){
