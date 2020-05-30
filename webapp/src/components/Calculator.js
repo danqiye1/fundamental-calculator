@@ -1,52 +1,29 @@
 import React, { Component } from 'react';
 import Navbar from "./Navbar";
-import { Grid, Step } from "semantic-ui-react";
+import Header from "./Header";
+import { Container, Grid, Divider, Form } from "semantic-ui-react";
 
 class Calculator extends Component {
-
-  state = {}
-  handleClick = (e, { title }) => this.setState({ active: title })
-
   render(){
-    const { active } = this.state;
     return (
       <div>
         <Navbar firebase={ this.props.firebase }/>
         <div style={contentStyle}>
-          <div>
+          <Container>
             <Grid padded>
+              <Header />
+              <Divider />
               <Grid.Row>
                 <Grid.Column>
-                <Step.Group>
-                  <Step
-                    active={active === 'Company'}
-                    icon='university'
-                    link
-                    onClick={this.handleClick}
-                    title='Choose Company'
-                    description='Choose the company to evaluate'
-                  />
-                  <Step
-                    active={active === 'Quality'}
-                    icon='balance scale'
-                    link
-                    onClick={this.handleClick}
-                    title='Quality Check'
-                    description='Check if company is good quality'
-                  />
-                  <Step
-                    active={active === 'Valuation'}
-                    icon='chart bar'
-                    link
-                    onClick={this.handleClick}
-                    title='Valuation'
-                    description='Calculate our intrinsic value'
-                  />
-                </Step.Group>
+                  <Form>
+                    <Form.Group inline>
+                      <Form.Input label='Company Symbol' placeholder='AAPL' />
+                    </Form.Group>
+                  </Form>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-          </div>
+          </Container>
         </div>
       </div>
     );
